@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="d-flex justify-content-center">
-    <div class="card mt-2" style="width: 18rem;">
+    <div class="card mt-2" style="width: 32rem;">
         <img src="https://picsum.photos/200/300" class="card-img-top" alt="logo-comic">
         <div class="card-body">
         <h5 class="card-title">{{$comics->title}}</h5>
