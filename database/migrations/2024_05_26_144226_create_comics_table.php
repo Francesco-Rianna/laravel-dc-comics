@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('thumbnail_url');
+            $table->string('thumb');
             $table->decimal('price', 8, 2); // 8 cifre totali, 2 cifre decimali
             $table->string('series');
             $table->date('sale_date');
