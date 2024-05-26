@@ -1,1 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.home-page {
+    background-color: aqua;
+    height: 500px;
+}
