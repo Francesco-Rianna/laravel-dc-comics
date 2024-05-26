@@ -11,7 +11,11 @@
         <div>Data di uscita : {{$comics->sale_date}}</div>
         <div>serie:{{$comics->series}}</div>
         <div>tipo: {{$comics->type}}</div>
-        <button class="mt-5 bg-primary text-white px-3 py-1  border-primary rounded " ><a href={{ route('comics.index') }}>Torna alla pagina dei fumetti</a>
+        <div class="d-flex justify-content-between mt-5">
+            <button class=" bg-primary text-white px-3 py-1  border-primary rounded " ><a href={{ route('comics.index') }}>Torna alla pagina dei fumetti</a>
+            <button class=" bg-primary text-white px-3 py-1  border-primary rounded"> <a href={{ route('comics.edit', ['comic' => $comics->id]) }}>Modifica prodotto</a></button >
+        </div>
+
         </div>
     </div>
 </div>
