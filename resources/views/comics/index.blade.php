@@ -15,6 +15,8 @@
             <div>Data di uscita : {{$comic->sale_date}}</div>
             <div>serie:{{$comic->series}}</div>
             <div>tipo: {{$comic->type}}</div>
+            <button class="mt-5 bg-primary text-white px-3 py-1  border-primary rounded " ><a href={{ route('comics.show', ['comic' => $comic->id]) }}>Visualizza fumetto</a>
+            </a></button>
             </div>
         </div>
         
