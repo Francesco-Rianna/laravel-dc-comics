@@ -12,8 +12,19 @@
             <div>serie:{{$comics->series}}</div>
             <div>tipo: {{$comics->type}}</div>
         <div class="d-flex justify-content-between mt-5">
-            <button class=" ms -1 bg-primary text-white px-1 border-primary rounded"> <a href={{ route('comics.edit', ['comic' => $comics->id]) }}>Modifica prodotto</a></button >
-            <button type="button" class="btn btn-danger">elimina</button>
+            <div>
+                <button class=" ms -1 bg-primary text-white px-1 border-primary rounded"> <a href={{ route('comics.edit', ['comic' => $comics->id]) }}>Modifica prodotto</a></button >
+            </div>
+
+            <div>
+                <form action="{{route('comics.destroy', ['comic' =>$comics->id])}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button  class="btn btn-danger" type="submit">elimina</button>
+                </form>
+
+            </div>
+
         </div>
 
         </div>
