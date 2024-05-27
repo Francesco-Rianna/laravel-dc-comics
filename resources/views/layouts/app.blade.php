@@ -16,7 +16,10 @@
 </head>
 
 <body>
-    @include('header')
+    <header id='bg-head'>
+        @include('header')
+    </header>
+
 
     <main>
         @yield('content')

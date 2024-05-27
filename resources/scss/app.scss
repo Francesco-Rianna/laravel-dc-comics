@@ -1,11 +1,29 @@
+@use './partials/show';
+@use './partials/index';
 @import '~bootstrap/scss/bootstrap';
+
+
+#bg-head {
+    background: rgba(31, 3, 3, 0.782);
+    color: white;
+}
+
+body {
+    background-image: url('https://static.vecteezy.com/ti/vettori-gratis/p1/7823441-sfondo-pop-art-vettoriale.jpg');
+}
+
+.bg-card-body {
+    background: rgb(143, 138, 134);
+}
 
 a {
     text-decoration: none;
     color: inherit;
 }
 
-.home-page {
-    background-color: aqua;
-    height: 500px;
+
+
+img {
+    height: 150px;
+    object-fit: cover;
 }
