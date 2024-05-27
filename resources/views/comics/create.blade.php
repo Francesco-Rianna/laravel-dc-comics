@@ -2,7 +2,7 @@
 @section('content')
 <h1 class="text-center">Crea il fumetto</h1>
 <div class="container">
-    <form action="{{ route(' comics.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('comics.create') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="mb-3">

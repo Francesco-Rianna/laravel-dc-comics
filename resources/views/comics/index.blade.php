@@ -10,7 +10,7 @@
             <img src={{$comic->thumb}} class="card-img-top" alt="logo-comic">
             <div class="card-body">
             <h5 class="card-title">{{$comic->title}}</h5>
-            <p class="card-text">{{$comic->description}}</p>
+            {{-- <p class="card-text">{{$comic->description}}</p> --}}
             <div>Prezzo:{{$comic->price}}</div>
             <div>Data di uscita : {{$comic->sale_date}}</div>
             <div>serie:{{$comic->series}}</div>

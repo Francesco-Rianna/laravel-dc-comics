@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="container d-flex mb-2">
-    <h5 class="create">Wow abbiamo aggiunto una sezione per un tuo fumetto clicca qui</h5>
+    <h5 class="create"><a href="{{route('comics.create')}}">crea il tuo fumetto</a></h5>
     <button class="ms-2 bg-primary text-white px-3 border-primary rounded"><a href={{route('comics.create')}}>Clicca</a></button>
 </div>
 
