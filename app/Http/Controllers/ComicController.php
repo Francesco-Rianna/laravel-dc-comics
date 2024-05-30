@@ -36,28 +36,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'title' => 'required|min:5|max:15',
-                'description' => 'required|string',
-                'thumb' => 'required|url',
-                'price' => 'required|numeric',
-                'series' => 'required|string',
-                'sale_date' => 'required|date',
-                'type' => 'required|string',
-            ],
-            [
-                'title.required'=> 'Il campo titolo è obbligatorio.',
-                'description.required'=> 'Il campo descrizione è obbligatorio.',
-                'thumb.required'=> 'Inserire url immagine ',
-                'price.required' => 'Il campo prezzo è obbligatorio.',
-                'price.numeric' => 'Il campo prezzo deve essere un numero.',
-                'series.required' => 'Il campo serie è obbligatorio.',
-                'sale_date.required' => 'Il campo data di vendita è obbligatorio.',
-                'sale_date.date' => 'Il campo data di vendita deve essere una data valida.',
-                'type.required' => 'Il campo tipo è obbligatorio.',
-            ]
-    );
+        $this->validateComicData($request);
 
 
             
@@ -105,6 +84,7 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
+        
         $comics= Comic::findOrFail($id);
         
         return view('comics.edit', compact('comics'));
@@ -120,12 +100,16 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        $comics= Comic::findOrFail($id);
+        $this->validateComicData($request);
+    
+        $comics = Comic::findOrFail($id);
         $formData = $request->all();
-
+    
         $comics->update($formData);
+        
         return redirect()->route('comics.show', $comics->id);
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -139,4 +123,30 @@ class ComicController extends Controller
         $comics->delete();
         return redirect()->route('comics.index');
     }
+
+    private function validateComicData(Request $request)
+    {
+        return $request->validate([
+            'title' => 'required|min:5|max:15',
+            'description' => 'required|string',
+            'thumb' => 'required|url',
+            'price' => 'required|numeric',
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'type' => 'required|string',
+        ], [
+            'title.required'=> 'Il campo titolo è obbligatorio.',
+            'title.min' => 'Il titolo deve avere almeno 5 caratteri.',
+            'title.max' => 'Il titolo non può superare i 15 caratteri.',
+            'description.required'=> 'Il campo descrizione è obbligatorio.',
+            'thumb.required'=> 'Inserire url immagine ',
+            'price.required' => 'Il campo prezzo è obbligatorio.',
+            'price.numeric' => 'Il campo prezzo deve essere un numero.',
+            'series.required' => 'Il campo serie è obbligatorio.',
+            'sale_date.required' => 'Il campo data di vendita è obbligatorio.',
+            'sale_date.date' => 'Il campo data di vendita deve essere una data valida.',
+            'type.required' => 'Il campo tipo è obbligatorio.',
+        ]);
+    }
+
 }
